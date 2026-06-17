@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STS Labs: AI Employees That Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-white: #ffffff;
+  --color-off-white: #fafafa;
+  --color-light-gray: #f0f0f0;
+  --color-mid-gray: #e0e0e0;
+  --color-dark-gray: #6b6b6b;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #4a4a4a;
+  --color-red: #dc2626;
+  --color-red-dark: #b91c1c;
+  --color-red-light: #fef2f2;
+  --border-main: 1.5px;
+  --shadow-offset: 4px 4px 0 var(--color-red);
+  --shadow-offset-hover: 6px 6px 0 var(--color-red);
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --section-py: clamp(4rem, 3rem + 4vw, 7rem);
+  --section-px: clamp(1.25rem, 0.5rem + 3vw, 4rem);
+  --content-max: 72rem;
+  --radius: 0;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--color-white); color: var(--color-text); font-size: 1rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5, h6, .nav-logo, .section-num, .role-card-name, .role-card-price, .step-num, .pricing-table .price, .chat-header, .modal-role-header, .carousel-tab, .section-num { font-variation-settings: "opsz" 48; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: inherit; }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: var(--color-white); border-bottom: var(--border-main) solid var(--color-text); padding: 0 var(--section-px); }
+.nav-inner { max-width: var(--content-max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.nav-logo { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.3rem; }
+.nav-logo .red { color: var(--color-red); }
+.nav-links { display: flex; align-items: center; gap: 1.75rem; list-style: none; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+.nav-links a:hover { color: var(--color-red); }
+.nav-cta { background: var(--color-red); color: #fff; padding: 0.55rem 1.3rem; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; border: none; transition: transform 0.15s, box-shadow 0.15s; }
+.nav-cta:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-offset); }
+
+/* HERO */
+.hero { padding: var(--section-py) var(--section-px); text-align: center; }
+.hero-inner { max-width: 48rem; margin: 0 auto; }
+.hero h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.25rem; }
+.hero h1 .red { color: var(--color-red); }
+.hero-sub { font-size: 1.15rem; color: var(--color-text-secondary); max-width: 36rem; margin: 0 auto 2.5rem; line-height: 1.65; }
+.hero-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-top: 2rem; }
+.pill { background: var(--color-off-white); border: var(--border-main) solid var(--color-text); padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.15s; display: inline-block; text-align: center; }
+.pill:hover { background: var(--color-red); color: #fff; border-color: var(--color-red); transform: translate(-2px, -2px); box-shadow: var(--shadow-offset); }
+
+/* SECTION HEADERS */
+.section { padding: var(--section-py) var(--section-px); }
+.section-inner { max-width: var(--content-max); margin: 0 auto; }
+.section-num { font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-red); margin-bottom: 0.75rem; }
+.section h2 { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
+.section-desc { font-size: 1.05rem; color: var(--color-text-secondary); max-width: 38rem; line-height: 1.65; }
+
+/* ROLE CARDS */
+.roles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+.role-card { border: var(--border-main) solid var(--color-text); padding: 1.5rem; transition: transform 0.15s, box-shadow 0.15s; display: block; cursor: pointer; background: var(--color-white); }
+.role-card:hover { transform: translate(-2px, -2px); box-shadow: 2px 2px 0 var(--color-red); }
+.role-card-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+.role-card-tasks { font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.55; margin-bottom: 1rem; }
+.role-card-price { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--color-red); }
+.role-card-price span { font-size: 0.85rem; font-weight: 600; color: var(--color-text-secondary); }
+.role-card-salary { font-size: 0.78rem; color: var(--color-dark-gray); margin-top: 0.25rem; }
+.role-card-cta { display: inline-block; margin-top: 0.75rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-red); }
+
+/* PRICING TABLE */
+.pricing-section { background: var(--color-off-white); }
+.pricing-table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: 0.9rem; }
+.pricing-table th { background: var(--color-text); color: #fff; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.06em; padding: 1rem 1.25rem; text-align: left; }
+.pricing-table td { padding: 0.9rem 1.25rem; border-bottom: 1px solid var(--color-mid-gray); }
+.pricing-table tr:hover td { background: var(--color-red-light); }
+.pricing-table .price { font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--color-red); }
+.pricing-table .save { font-weight: 700; color: var(--color-red); }
+
+/* STEPS / HOW IT WORKS */
+.steps-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
+.step { border: var(--border-main) solid var(--color-text); padding: 2rem 1.5rem; }
+.step-num { font-family: var(--font-display); font-size: 3rem; font-weight: 800; color: var(--color-red); line-height: 1; }
+.step h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; margin: 0.75rem 0 0.5rem; }
+.step p { font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.55; }
+
+/* CHANNELS */
+.channels-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+.channel-card { border: var(--border-main) solid var(--color-text); padding: 1.5rem; }
+.channel-card h4 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.channel-card p { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.55; }
+
+/* SALES CALLOUT */
+.sales-callout { margin-top: 2.5rem; padding: 1.5rem; border: 2px solid var(--color-red); text-align: center; }
+.sales-callout p { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.6; }
+.sales-callout a { color: var(--color-red); font-weight: 700; }
+.sales-callout a:hover { text-decoration: underline; }
+
+/* FAQ */
+.faq-item { border-bottom: 1px solid var(--color-mid-gray); }
+.faq-q { width: 100%; text-align: left; padding: 1.25rem 0; font-size: 0.95rem; font-weight: 600; background: none; border: none; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+.faq-q:hover { color: var(--color-red); }
+.faq-q::after { content: '+'; font-size: 1.2rem; font-weight: 300; margin-left: 1rem; }
+.faq-item.open .faq-q::after { content: '\2212'; }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-item.open .faq-a { max-height: 300px; }
+.faq-a p { padding-bottom: 1.25rem; font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.6; }
+
+/* CONTACT */
+.contact-section { background: var(--color-off-white); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; }
+.contact-info h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; }
+.contact-info p { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.65; margin-bottom: 0.75rem; }
+.contact-info a { color: var(--color-red); font-weight: 600; }
+.contact-info a:hover { text-decoration: underline; }
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.contact-form label { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem; display: block; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 0.75rem 1rem; border: var(--border-main) solid var(--color-text); font-family: var(--font-body); font-size: 0.95rem; background: var(--color-white); }
+.contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--color-red); outline-offset: -2px; }
+.contact-form textarea { resize: vertical; min-height: 120px; }
+.contact-form .optional { font-size: 0.75rem; color: var(--color-dark-gray); font-weight: 400; text-transform: none; letter-spacing: 0; margin-left: 0.25rem; }
+.contact-submit { background: var(--color-red); color: #fff; padding: 1rem 2rem; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.04em; border: none; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+.contact-submit:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-offset); }
+
+/* FOOTER */
+.footer { border-top: var(--border-main) solid var(--color-text); padding: 2rem var(--section-px); }
+.footer-inner { max-width: var(--content-max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-left { font-size: 0.8rem; color: var(--color-dark-gray); }
+.footer-links { display: flex; gap: 1.5rem; list-style: none; }
+.footer-links a { font-size: 0.8rem; color: var(--color-dark-gray); }
+.footer-links a:hover { color: var(--color-red); }
+
+/* CHAT DEMO */
+.chat-demo-section { padding: var(--section-py) var(--section-px); background: var(--color-off-white); }
+.chat-demo-inner { max-width: var(--content-max); margin: 0 auto; text-align: center; }
+.phone-frame { max-width: 400px; margin: 2.5rem auto 0; border: var(--border-main) solid var(--color-text); background: var(--color-white); box-shadow: var(--shadow-offset); overflow: hidden; }
+.chat-header { background: var(--color-red); color: #fff; padding: 0.85rem 1rem; display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; }
+.chat-header .green-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; display: inline-block; }
+.chat-body { padding: 1rem; min-height: 320px; max-height: 400px; overflow-y: auto; display: flex; flex-direction: column; gap: 0.65rem; }
+.chat-bubble { padding: 0.65rem 0.9rem; font-size: 0.88rem; line-height: 1.5; max-width: 82%; opacity: 0; transform: translateY(6px); transition: opacity 0.25s ease, transform 0.25s ease; }
+.chat-bubble.visible { opacity: 1; transform: translateY(0); }
+.chat-bubble.user { align-self: flex-end; background: var(--color-off-white); border: var(--border-main) solid var(--color-text); }
+.chat-bubble.agent { align-self: flex-start; background: var(--color-red-light); border: var(--border-main) solid var(--color-text); }
+.chat-bubble .typing-cursor { display: inline-block; width: 2px; height: 1em; background: var(--color-text); margin-left: 1px; animation: blink 0.5s step-end infinite; vertical-align: text-bottom; }
+@keyframes blink { 50% { opacity: 0; } }
+.typing-indicator { display: flex; gap: 4px; padding: 0.65rem 0.9rem; align-self: flex-start; background: var(--color-red-light); border: var(--border-main) solid var(--color-text); opacity: 0; transform: translateY(6px); transition: opacity 0.25s ease, transform 0.25s ease; }
+.typing-indicator.visible { opacity: 1; transform: translateY(0); }
+.typing-indicator .dot { width: 7px; height: 7px; background: var(--color-dark-gray); border-radius: 50%; animation: bounce 1.2s ease-in-out infinite; }
+.typing-indicator .dot:nth-child(2) { animation-delay: 0.15s; }
+.typing-indicator .dot:nth-child(3) { animation-delay: 0.3s; }
+@keyframes bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
+
+/* CAROUSEL */
+.carousel-wrapper { max-width: 400px; margin: 2.5rem auto 0; }
+.carousel-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-bottom: 1rem; }
+.carousel-tab { background: var(--color-off-white); border: 1.5px solid var(--color-text); padding: 0.35rem 0.75rem; font-family: var(--font-body); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer; transition: all 0.15s; }
+.carousel-tab:hover { background: var(--color-red); color: #fff; border-color: var(--color-red); }
+.carousel-tab.active { background: var(--color-red); color: #fff; border-color: var(--color-red); }
+.carousel-wrapper .phone-frame { margin: 0 auto; }
+
+/* MODAL */
+.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(26,26,26,0.6); z-index: 200; display: none; align-items: flex-start; justify-content: center; padding: 2rem 1rem; overflow-y: auto; }
+.modal-overlay.active { display: flex; }
+.modal-content { background: var(--color-white); border: var(--border-main) solid var(--color-text); box-shadow: 6px 6px 0 var(--color-red); max-width: 520px; width: 100%; margin-top: 2rem; position: relative; }
+.modal-close { position: absolute; top: 0.75rem; right: 0.75rem; background: none; border: none; font-size: 1.5rem; font-weight: 300; line-height: 1; color: var(--color-text); cursor: pointer; z-index: 10; padding: 0.25rem 0.5rem; }
+.modal-close:hover { color: var(--color-red); }
+.modal-role-header { background: var(--color-red); color: #fff; padding: 1.25rem 1.5rem; font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; }
+.modal-body { padding: 1.5rem; }
+.modal-body .phone-frame { max-width: 100%; }
+.modal-body .chat-body { min-height: 240px; max-height: 320px; }
+.modal-price { text-align: center; padding: 1rem 1.5rem 1.5rem; border-top: 1px solid var(--color-mid-gray); }
+.modal-price .amount { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--color-red); }
+.modal-price .period { font-size: 0.9rem; color: var(--color-text-secondary); }
+.modal-cta { display: block; width: 100%; background: var(--color-red); color: #fff; padding: 0.85rem; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.04em; border: none; text-align: center; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+.modal-cta:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-offset); }
+.modal-faq { border-top: 1px solid var(--color-mid-gray); padding: 1.25rem 1.5rem 0; }
+.modal-faq h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; }
+.modal-faq-card { border: 1.5px solid var(--color-text); margin-bottom: 0.5rem; background: var(--color-white); cursor: pointer; transition: all 0.15s; }
+.modal-faq-card:hover { background: var(--color-off-white); }
+.modal-faq-card .mfq-q { padding: 0.65rem 1rem; font-weight: 700; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; }
+.modal-faq-card .mfq-q::after { content: '+'; font-size: 1.1rem; font-weight: 800; line-height: 1; }
+.modal-faq-card.open .mfq-q::after { content: '\2212'; }
+.modal-faq-card .mfq-a { display: none; padding: 0 1rem 0.75rem; font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.5; }
+.modal-faq-card.open .mfq-a { display: block; }
+.modal-integrations { border-top: 1px solid var(--color-mid-gray); padding: 1.25rem 1.5rem 0; }
+.modal-integrations h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.modal-integrations p { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 0.5rem; }
+
+@media (max-width: 768px) {
+  .nav-links { gap: 1rem; font-size: 0.75rem; }
+  .roles-grid { grid-template-columns: 1fr; }
+  .steps-row { grid-template-columns: 1fr; }
+  .channels-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .phone-frame { max-width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="red">S</span>TS Labs</a>
+    <ul class="nav-links">
+      <li><a href="#roles">Roles</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">Get Started</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Hire an <span class="red">AI employee</span> for $250/mo.</h1>
+    <p class="hero-sub">Executive assistants, sales reps, project managers, support agents. One flat rate. They work across Slack, WhatsApp, Teams, Telegram, and Discord. No hiring, no training, no overhead.</p>
+    <div class="hero-pills">
+      <a href="javascript:void(0)" class="pill" onclick="openModal('ea')">I need inbox management</a>
+      <a href="javascript:void(0)" class="pill" onclick="openModal('sdr')">I need lead follow-up</a>
+      <a href="javascript:void(0)" class="pill" onclick="openModal('pm')">I need project tracking</a>
+      <a href="javascript:void(0)" class="pill" onclick="openModal('cs')">I need customer support</a>
+      <a href="javascript:void(0)" class="pill" onclick="openModal('copywriter')">I need content writing</a>
+      <a href="javascript:void(0)" class="pill" onclick="openModal('accountant')">I need bookkeeping</a>
+      <a href="javascript:void(0)" class="pill" onclick="openModal('sysadmin')">I need server management</a>
+      <a href="javascript:void(0)" class="pill" onclick="openModal('recruiter')">I need hiring help</a>
+    </div>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section class="section" id="roles">
+  <div class="section-inner">
+    <p class="section-num">01 &mdash; Roles</p>
+    <h2>Built for the work you actually need done.</h2>
+    <p class="section-desc">Each agent specializes in a role, and they all cost the same. $250/month, unlimited hours.</p>
+    <div class="roles-grid">
+      <div class="role-card" onclick="openModal('ea')">
+        <div class="role-card-name">Executive Assistant</div>
+        <div class="role-card-tasks">Calendar management, inbox triage, travel booking, meeting prep, follow-up emails, daily briefings.</div>
+        <div class="role-card-price">$250 <span>/month</span></div>
+        <div class="role-card-salary">Avg human EA salary: $4,500/mo</div>
+        <div class="role-card-cta">See it in action &rarr;</div>
+      </div>
+      <div class="role-card" onclick="openModal('sdr')">
+        <div class="role-card-name">Sales Development Rep</div>
+        <div class="role-card-tasks">Outbound outreach, CRM updates, prospect research, follow-up sequences, pipeline reports.</div>
+        <div class="role-card-price">$250 <span>/month</span></div>
+        <div class="role-card-salary">Avg human SDR salary: $5,200/mo</div>
+        <div class="role-card-cta">See it in action &rarr;</div>
+      </div>
+      <div class="role-card" onclick="openModal('cs')">
+        <div class="role-card-name">Customer Support Agent</div>
+        <div class="role-card-tasks">Ticket triage, response drafting, escalation routing, FAQ answers, satisfaction follow-ups.</div>
+        <div class="role-card-price">$250 <span>/month</span></div>
+        <div class="role-card-salary">Avg human CS rep salary: $3,800/mo</div>
+        <div class="role-card-cta">See it in action &rarr;</div>
+      </div>
+      <div class="role-card" onclick="openModal('pm')">
+        <div class="role-card-name">Project Manager</div>
+        <div class="role-card-tasks">Task tracking, stakeholder updates, sprint management, deadline enforcement, status reports.</div>
+        <div class="role-card-price">$250 <span>/month</span></div>
+        <div class="role-card-salary">Avg human PM salary: $7,200/mo</div>
+        <div class="role-card-cta">See it in action &rarr;</div>
+      </div>
+      <div class="role-card" onclick="openModal('copywriter')">
+        <div class="role-card-name">Copywriter</div>
+        <div class="role-card-tasks">Launch emails, landing pages, social content, blog posts, ad copy. On-brand, every time.</div>
+        <div class="role-card-price">$250 <span>/month</span></div>
+        <div class="role-card-salary">Avg human copywriter salary: $5,500/mo</div>
+        <div class="role-card-cta">See it in action &rarr;</div>
+      </div>
+      <div class="role-card" onclick="openModal('accountant')">
+        <div class="role-card-name">Accountant</div>
+        <div class="role-card-tasks">Bookkeeping, invoice management, expense tracking, financial reporting, tax prep support, payroll processing.</div>
+        <div class="role-card-price">$250 <span>/month</span></div>
+        <div class="role-card-salary">Avg human accountant salary: $4,800/mo</div>
+        <div class="role-card-cta">See it in action &rarr;</div>
+      </div>
+      <div class="role-card" onclick="openModal('sysadmin')">
+        <div class="role-card-name">Systems Administrator</div>
+        <div class="role-card-tasks">Server monitoring, patch management, backup verification, access control, incident response, infrastructure reporting.</div>
+        <div class="role-card-price">$250 <span>/month</span></div>
+        <div class="role-card-salary">Avg human sysadmin salary: $6,000/mo</div>
+        <div class="role-card-cta">See it in action &rarr;</div>
+      </div>
+      <div class="role-card" onclick="openModal('recruiter')">
+        <div class="role-card-name">Recruiter</div>
+        <div class="role-card-tasks">Candidate sourcing, resume screening, interview scheduling, offer tracking, pipeline reporting, onboarding coordination.</div>
+        <div class="role-card-price">$250 <span>/month</span></div>
+        <div class="role-card-salary">Avg human recruiter salary: $4,500/mo</div>
+        <div class="role-card-cta">See it in action &rarr;</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="section-inner">
+    <p class="section-num">02 &mdash; How It Works</p>
+    <h2>From zero to fully running.</h2>
+    <p class="section-desc">$250/mo covers the setup, the agent, and the support to take you from zero to fully running.</p>
+    <div class="steps-row">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Tell us what you need</h3>
+        <p>Choose a role, describe your workflow. We configure everything.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Connect your channels</h3>
+        <p>Link Slack, WhatsApp, Teams, whatever your team uses.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Watch it work</h3>
+        <p>Your agent starts handling tasks, following up, and reporting back.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Level up over time</h3>
+        <p>From simple tasks to full delegation as you build trust.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAT DEMO -->
+<section class="chat-demo-section" id="demo">
+  <div class="chat-demo-inner">
+    <p class="section-num">03 &mdash; See It In Action</p>
+    <h2>Watch your AI employee think, respond, and act.</h2>
+    <p class="section-desc">No scripts. No prompts. Just tell it what you need and watch it get to work.</p>
+    <div class="carousel-wrapper">
+      <div class="carousel-tabs" id="carousel-tabs">
+        <button class="carousel-tab active" data-role="ea">EA</button>
+        <button class="carousel-tab" data-role="sdr">SDR</button>
+        <button class="carousel-tab" data-role="cs">Support</button>
+        <button class="carousel-tab" data-role="pm">PM</button>
+        <button class="carousel-tab" data-role="copywriter">Copy</button>
+        <button class="carousel-tab" data-role="accountant">Acct</button>
+        <button class="carousel-tab" data-role="sysadmin">Sysadmin</button>
+        <button class="carousel-tab" data-role="recruiter">Recruiter</button>
+      </div>
+      <div class="phone-frame" id="homepage-chat">
+        <div class="chat-header">
+          <span class="green-dot"></span>
+          <span id="chat-role-label">EA Agent</span>
+        </div>
+        <div class="chat-body" id="homepage-chat-body">
+          <!-- Bubbles injected by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing-section" id="pricing">
+  <div class="section-inner">
+    <p class="section-num">04 &mdash; Pricing</p>
+    <h2>One flat rate. Every role.</h2>
+    <p class="section-desc">No per-seat pricing. No usage caps. No surprise bills. $250/month gets you a fully operational AI employee.</p>
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Avg Human Salary</th>
+          <th>STS Labs Agent</th>
+          <th>You Save</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Executive Assistant</td>
+          <td>$54,000/yr ($4,500/mo)</td>
+          <td class="price">$250/mo</td>
+          <td class="save">94% less</td>
+        </tr>
+        <tr>
+          <td>Sales Dev Rep</td>
+          <td>$62,400/yr ($5,200/mo)</td>
+          <td class="price">$250/mo</td>
+          <td class="save">95% less</td>
+        </tr>
+        <tr>
+          <td>Customer Support</td>
+          <td>$45,600/yr ($3,800/mo)</td>
+          <td class="price">$250/mo</td>
+          <td class="save">93% less</td>
+        </tr>
+        <tr>
+          <td>Project Manager</td>
+          <td>$86,400/yr ($7,200/mo)</td>
+          <td class="price">$250/mo</td>
+          <td class="save">97% less</td>
+        </tr>
+        <tr>
+          <td>Copywriter</td>
+          <td>$66,000/yr ($5,500/mo)</td>
+          <td class="price">$250/mo</td>
+          <td class="save">95% less</td>
+        </tr>
+        <tr>
+          <td>Accountant</td>
+          <td>$57,600/yr ($4,800/mo)</td>
+          <td class="price">$250/mo</td>
+          <td class="save">95% less</td>
+        </tr>
+        <tr>
+          <td>Systems Administrator</td>
+          <td>$72,000/yr ($6,000/mo)</td>
+          <td class="price">$250/mo</td>
+          <td class="save">96% less</td>
+        </tr>
+        <tr>
+          <td>Recruiter</td>
+          <td>$54,000/yr ($4,500/mo)</td>
+          <td class="price">$250/mo</td>
+          <td class="save">94% less</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:1.25rem; font-size:0.82rem; color:var(--color-dark-gray);">Your whole team can share one agent. Need more? Add additional agents at the same flat rate.</p>
+    <div class="sales-callout">
+      <p>Need something custom? Voice integrations, custom APIs, industry-specific workflows. <a href="mailto:hello@sukhtech.com">Talk to Sales</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CHANNELS -->
+<section class="section" id="channels">
+  <div class="section-inner">
+    <p class="section-num">05 &mdash; Channels</p>
+    <h2>Works where your team already does.</h2>
+    <p class="section-desc">Your agent meets you on the platforms you already use. No new logins, no new habits. Just plug it in and go.</p>
+    <div class="channels-grid">
+      <div class="channel-card">
+        <h4>WhatsApp</h4>
+        <p>Message your agent like you'd text a team member. It responds, follows up, and keeps threads moving.</p>
+      </div>
+      <div class="channel-card">
+        <h4>Slack</h4>
+        <p>Your agent lives in your Slack workspace. Mention it in any channel and it gets to work.</p>
+      </div>
+      <div class="channel-card">
+        <h4>Microsoft Teams</h4>
+        <p>Integrated directly into your Teams environment. Your agent joins channels and handles requests in context.</p>
+      </div>
+      <div class="channel-card">
+        <h4>Telegram</h4>
+        <p>Fast, lightweight communication. Your agent responds in real-time and keeps conversations organized.</p>
+      </div>
+      <div class="channel-card">
+        <h4>Discord</h4>
+        <p>For teams that live in Discord. Your agent works in servers, threads, and DMs just like a real teammate.</p>
+      </div>
+      <div class="channel-card">
+        <h4>Email</h4>
+        <p>Your agent drafts, replies, and follows up from your inbox. It triages what matters and escalates what needs you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="section-inner">
+    <p class="section-num">06 &mdash; FAQ</p>
+    <h2>What people ask before hiring.</h2>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How is this different from ChatGPT or other AI tools?</button>
+      <div class="faq-a"><p>ChatGPT is a chatbot you talk to. An STS agent is an employee that works independently. It initiates tasks, follows up on its own, manages your calendar and inbox, and operates across your channels, not just in a browser tab. You don't prompt it; you direct it.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How do I teach it what I want?</button>
+      <div class="faq-a"><p>Exactly like a new hire: tell it in plain language, over Slack, WhatsApp, or email. "Move marketing emails to a folder." "If anyone from Acme reaches out, flag it." There's no prompt engineering. You talk, it learns, and it sticks. Correct it once and it remembers.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What if it gets something wrong?</button>
+      <div class="faq-a"><p>You correct it in the moment, just like you would with a person. It learns from feedback and adjusts. For anything critical, you can set escalation rules so it flags you instead of acting on its own.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Why is every role the same price?</button>
+      <div class="faq-a"><p>Because the underlying infrastructure is the same. Whether your agent manages your calendar or writes your marketing copy, it uses the same platform. We don't charge more because your use case is different. That's the whole point.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Can my whole team share one agent?</button>
+      <div class="faq-a"><p>Yes. One agent can serve multiple team members across different channels. Need separate agents for different roles? Add them at the same flat rate.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What does "unlimited hours" mean?</button>
+      <div class="faq-a"><p>Your agent doesn't clock in and out. It works 24/7, monitoring your inbox, following up with leads, updating your calendar, whatever you've set it to do. There's no hourly cap or per-usage billing.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Privacy and security: who owns my data?</button>
+      <div class="faq-a"><p>You do. Your data is never used to train models. We encrypt everything in transit and at rest. You can export or delete your data at any time. Read our <a href="/privacy.html" style="color:var(--color-red)">Privacy Policy</a> for the full details.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+  <div class="section-inner">
+    <p class="section-num">Contact</p>
+    <h2>Get in touch.</h2>
+    <p class="section-desc">Ready to hire your AI employee or have questions? Reach out and we'll get back to you within one business day.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>STS Labs</h3>
+        <p>Floral Park, NY</p>
+        <p>Phone: <a href="tel:5166554517">(516) 655-4517</a></p>
+        <p>Email: <a href="mailto:hello@sukhtech.com">hello@sukhtech.com</a></p>
+      </div>
+      <div class="contact-form-wrap">
+        <form class="contact-form" action="https://formsubmit.co/hello@sukhtech.com" method="POST">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="phone">Phone <span class="optional">(optional)</span></label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+          <div>
+            <label for="company">Company <span class="optional">(optional)</span></label>
+            <input type="text" id="company" name="company">
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <input type="hidden" name="_subject" value="STS Labs Contact Form">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://sukhtech.com/">
+          <input type="hidden" name="_template" value="table">
+          <button type="submit" class="contact-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      &copy; 2026 STS Labs&ensp;·&ensp;(516) 655-4517&ensp;·&ensp;hello@sukhtech.com
+    </div>
+    <ul class="footer-links">
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/terms.html">Terms</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- MODALS -->
+
+<!-- EA Modal -->
+<div class="modal-overlay" id="modal-ea" onclick="closeModalOutside(event, 'ea')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('ea')">&times;</button>
+    <div class="modal-role-header">Executive Assistant</div>
+    <div class="modal-body">
+      <div class="phone-frame">
+        <div class="chat-header">
+          <span class="green-dot"></span>
+          EA Agent
+        </div>
+        <div class="chat-body" id="modal-chat-ea"></div>
+      </div>
+    </div>
+    <div class="modal-price">
+      <div class="amount">$250 <span style="font-size:0.9rem;font-weight:600;color:var(--color-text-secondary)">/month</span></div>
+      <div style="font-size:0.82rem;color:var(--color-dark-gray);margin-top:0.35rem;">Avg human EA salary: $4,500/mo</div>
+    </div>
+        <div class="modal-faq">
+      <h4>Questions about the Executive Assistant</h4>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Can it manage multiple calendars?</div>
+        <div class="mfq-a">Yes. It syncs with Google Calendar, Outlook, and Apple Calendar simultaneously. It spots conflicts, suggests reschedules, and sends you a daily briefing every morning.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Does it handle email on its own?</div>
+        <div class="mfq-a">It triages your inbox, drafts responses in your voice, and flags what needs your input. It links directly to your email and never sends on sensitive topics without your approval.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">How does it learn my preferences?</div>
+        <div class="mfq-a">Tell it once in plain language. "Always schedule calls in the afternoon." "Never book on Fridays." It remembers and applies your preferences going forward.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Can it book travel?</div>
+        <div class="mfq-a">Yes. It researches flights and hotels, presents options that fit your preferences, and handles the booking once you approve.</div>
+      </div>
+    </div>
+        <div class="modal-integrations">
+      <h4>How it connects</h4>
+      <p>Connects to your email (Gmail, Outlook), calendar (Google Calendar, Outlook), and CRM (HubSpot, Salesforce). It reads, writes, and updates across all of them so nothing falls through the cracks.</p>
+    </div>
+    <a href="#contact" class="modal-cta" onclick="closeModal('ea')">Get Started</a>
+  </div>
+</div>
+
+<!-- SDR Modal -->
+<div class="modal-overlay" id="modal-sdr" onclick="closeModalOutside(event, 'sdr')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('sdr')">&times;</button>
+    <div class="modal-role-header">Sales Development Rep</div>
+    <div class="modal-body">
+      <div class="phone-frame">
+        <div class="chat-header">
+          <span class="green-dot"></span>
+          SDR Agent
+        </div>
+        <div class="chat-body" id="modal-chat-sdr"></div>
+      </div>
+    </div>
+    <div class="modal-price">
+      <div class="amount">$250 <span style="font-size:0.9rem;font-weight:600;color:var(--color-text-secondary)">/month</span></div>
+      <div style="font-size:0.82rem;color:var(--color-dark-gray);margin-top:0.35rem;">Avg human SDR salary: $5,200/mo</div>
+    </div>
+        <div class="modal-faq">
+      <h4>Questions about the Sales Development Rep</h4>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Does it write outreach from scratch?</div>
+        <div class="mfq-a">Yes. It researches prospects, crafts personalized messages based on their role and company, and sends follow-ups on schedule. It links directly to your CRM so every interaction is logged.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Can it update my CRM automatically?</div>
+        <div class="mfq-a">Yes. It logs every outreach sent, reply received, and meeting booked directly into your CRM. Deal stages stay current and pipeline data stays clean without manual entry.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">How does it handle objections?</div>
+        <div class="mfq-a">It drafts responses for your review on tough objections. For common ones within your approved guidelines, it replies directly and escalates anything uncertain to you.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">What channels does it use?</div>
+        <div class="mfq-a">Slack, WhatsApp, Teams, Telegram, Discord, and email. For LinkedIn outreach, talk to Sales about custom integration.</div>
+      </div>
+    </div>
+        <div class="modal-integrations">
+      <h4>How it connects</h4>
+      <p>Links to your CRM (HubSpot, Salesforce, Pipedrive) and mailing agent (Mailchimp, SendGrid). Outreach is logged automatically, follow-ups are sequenced, and pipeline data stays current without manual entry.</p>
+    </div>
+    <a href="#contact" class="modal-cta" onclick="closeModal('sdr')">Get Started</a>
+  </div>
+</div>
+
+<!-- CS Modal -->
+<div class="modal-overlay" id="modal-cs" onclick="closeModalOutside(event, 'cs')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('cs')">&times;</button>
+    <div class="modal-role-header">Customer Support Agent</div>
+    <div class="modal-body">
+      <div class="phone-frame">
+        <div class="chat-header">
+          <span class="green-dot"></span>
+          CS Agent
+        </div>
+        <div class="chat-body" id="modal-chat-cs"></div>
+      </div>
+    </div>
+    <div class="modal-price">
+      <div class="amount">$250 <span style="font-size:0.9rem;font-weight:600;color:var(--color-text-secondary)">/month</span></div>
+      <div style="font-size:0.82rem;color:var(--color-dark-gray);margin-top:0.35rem;">Avg human CS rep salary: $3,800/mo</div>
+    </div>
+    <div class="modal-faq">
+      <h4>Questions about Customer Support</h4>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Can it handle refunds and account changes?</div>
+        <div class="mfq-a">It processes routine requests like refunds, address changes, and password resets. For high-value actions, it confirms with you first.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">How does it handle angry customers?</div>
+        <div class="mfq-a">It responds calmly, acknowledges the issue, and offers solutions within your guidelines. It escalates to you if the situation needs a human touch.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Does it learn from past tickets?</div>
+        <div class="mfq-a">Yes. It recognizes patterns from resolved tickets and applies that knowledge to similar issues. It gets faster and more accurate over time.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Can it work across channels?</div>
+        <div class="mfq-a">It responds on Slack, WhatsApp, Teams, Telegram, Discord, and email. All conversations are synced so customers never have to repeat themselves.</div>
+      </div>
+    </div>
+        <div class="modal-integrations">
+      <h4>How it connects</h4>
+      <p>Links to your helpdesk (Zendesk, Intercom, Freshdesk) and CRM. Tickets are created, updated, and resolved automatically. Customer history is pulled from your CRM so every response is informed.</p>
+    </div>
+    <a href="#contact" class="modal-cta" onclick="closeModal('cs')">Get Started</a>
+  </div>
+</div>
+
+<!-- PM Modal -->
+<div class="modal-overlay" id="modal-pm" onclick="closeModalOutside(event, 'pm')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('pm')">&times;</button>
+    <div class="modal-role-header">Project Manager</div>
+    <div class="modal-body">
+      <div class="phone-frame">
+        <div class="chat-header">
+          <span class="green-dot"></span>
+          PM Agent
+        </div>
+        <div class="chat-body" id="modal-chat-pm"></div>
+      </div>
+    </div>
+    <div class="modal-price">
+      <div class="amount">$250 <span style="font-size:0.9rem;font-weight:600;color:var(--color-text-secondary)">/month</span></div>
+      <div style="font-size:0.82rem;color:var(--color-dark-gray);margin-top:0.35rem;">Avg human PM salary: $7,200/mo</div>
+    </div>
+        <div class="modal-faq">
+      <h4>Questions about the Project Manager</h4>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Does it replace Jira or Asana?</div>
+        <div class="mfq-a">No. It works alongside them. It updates tasks, creates tickets, and sends status reports so you spend less time in project management software and more time leading.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Can it manage multiple projects?</div>
+        <div class="mfq-a">Yes. It tracks deadlines, dependencies, and stakeholder updates across all your active projects simultaneously.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">How does it handle deadlines?</div>
+        <div class="mfq-a">It monitors due dates, sends reminders before deadlines, flags at-risk items, and escalates to you when blockers appear.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Does it run standups and meetings?</div>
+        <div class="mfq-a">It drafts standup summaries, compiles status from each team member, and distributes notes. It does not host live meetings.</div>
+      </div>
+    </div>
+        <div class="modal-integrations">
+      <h4>How it connects</h4>
+      <p>Links to your project tools (Jira, Asana, Linear, Trello) and communication channels (Slack, Teams). Tasks are synced, status is updated, and stakeholders get reports without you writing them.</p>
+    </div>
+    <a href="#contact" class="modal-cta" onclick="closeModal('pm')">Get Started</a>
+  </div>
+</div>
+
+<!-- Copywriter Modal -->
+<div class="modal-overlay" id="modal-copywriter" onclick="closeModalOutside(event, 'copywriter')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('copywriter')">&times;</button>
+    <div class="modal-role-header">Copywriter</div>
+    <div class="modal-body">
+      <div class="phone-frame">
+        <div class="chat-header">
+          <span class="green-dot"></span>
+          Copywriter Agent
+        </div>
+        <div class="chat-body" id="modal-chat-copywriter"></div>
+      </div>
+    </div>
+    <div class="modal-price">
+      <div class="amount">$250 <span style="font-size:0.9rem;font-weight:600;color:var(--color-text-secondary)">/month</span></div>
+      <div style="font-size:0.82rem;color:var(--color-dark-gray);margin-top:0.35rem;">Avg human copywriter salary: $5,500/mo</div>
+    </div>
+        <div class="modal-faq">
+      <h4>Questions about the Copywriter</h4>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Does it match my brand voice?</div>
+        <div class="mfq-a">Yes. Give it examples of your tone and style. It learns from your feedback and stays on brand across every piece.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Can it write long-form content?</div>
+        <div class="mfq-a">Yes. Blog posts, whitepapers, case studies, landing pages. It drafts, you review, and it revises until you are satisfied.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">How does revision work?</div>
+        <div class="mfq-a">Tell it what to change in plain language. It applies your edits and remembers the preference for next time.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Can it handle SEO?</div>
+        <div class="mfq-a">It writes with target keywords in mind, suggests meta descriptions, and structures content for readability. Talk to Sales for advanced SEO workflows.</div>
+      </div>
+    </div>
+        <div class="modal-integrations">
+      <h4>How it connects</h4>
+      <p>Connects to your CMS (WordPress, Webflow, Shopify) and mailing agent (Mailchimp, ConvertKit). Drafts publish directly, email campaigns are scheduled, and content calendars stay on track.</p>
+    </div>
+    <a href="#contact" class="modal-cta" onclick="closeModal('copywriter')">Get Started</a>
+  </div>
+</div>
+
+<!-- Accountant Modal -->
+<div class="modal-overlay" id="modal-accountant" onclick="closeModalOutside(event, 'accountant')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('accountant')">&times;</button>
+    <div class="modal-role-header">Accountant</div>
+    <div class="modal-body">
+      <div class="phone-frame">
+        <div class="chat-header">
+          <span class="green-dot"></span>
+          Accountant Agent
+        </div>
+        <div class="chat-body" id="modal-chat-accountant"></div>
+      </div>
+    </div>
+    <div class="modal-price">
+      <div class="amount">$250 <span style="font-size:0.9rem;font-weight:600;color:var(--color-text-secondary)">/month</span></div>
+      <div style="font-size:0.82rem;color:var(--color-dark-gray);margin-top:0.35rem;">Avg human accountant salary: $4,800/mo</div>
+    </div>
+        <div class="modal-faq">
+      <h4>Questions about the Accountant</h4>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Can it file taxes?</div>
+        <div class="mfq-a">It prepares clean, organized records for your CPA but does not file taxes directly. It handles bookkeeping, expense tracking, and financial reporting so your CPA has everything they need.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Does it connect to my bank?</div>
+        <div class="mfq-a">It works with data you provide or through integrations you set up. Talk to Sales about specific bank or accounting software connections.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Is my financial data secure?</div>
+        <div class="mfq-a">Yes. All data is encrypted in transit and at rest. We never use your data for model training. You can export or delete it anytime.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Can it handle payroll?</div>
+        <div class="mfq-a">It processes payroll runs, tracks hours, and generates reports. For direct deposits and tax withholdings, it coordinates with your payroll provider.</div>
+      </div>
+    </div>
+        <div class="modal-integrations">
+      <h4>How it connects</h4>
+      <p>Links to your accounting software (QuickBooks, Xero, FreshBooks) and bank feeds. Transactions are categorized, invoices are tracked, and financial reports are generated on schedule without manual entry.</p>
+    </div>
+    <a href="#contact" class="modal-cta" onclick="closeModal('accountant')">Get Started</a>
+  </div>
+</div>
+
+<!-- Sysadmin Modal -->
+<div class="modal-overlay" id="modal-sysadmin" onclick="closeModalOutside(event, 'sysadmin')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('sysadmin')">&times;</button>
+    <div class="modal-role-header">Systems Administrator</div>
+    <div class="modal-body">
+      <div class="phone-frame">
+        <div class="chat-header">
+          <span class="green-dot"></span>
+          Sysadmin Agent
+        </div>
+        <div class="chat-body" id="modal-chat-sysadmin"></div>
+      </div>
+    </div>
+    <div class="modal-price">
+      <div class="amount">$250 <span style="font-size:0.9rem;font-weight:600;color:var(--color-text-secondary)">/month</span></div>
+      <div style="font-size:0.82rem;color:var(--color-dark-gray);margin-top:0.35rem;">Avg human sysadmin salary: $6,000/mo</div>
+    </div>
+        <div class="modal-faq">
+      <h4>Questions about the Systems Administrator</h4>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Can it actually restart servers?</div>
+        <div class="mfq-a">It monitors, alerts, and executes approved runbooks. For critical actions like server restarts, it confirms with you before proceeding.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">What does it monitor?</div>
+        <div class="mfq-a">CPU, memory, disk, uptime, SSL certificates, backup status, and any custom health checks you configure. It alerts you when thresholds are hit.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Does it work with my existing monitoring tools?</div>
+        <div class="mfq-a">Yes. It integrates with common monitoring stacks (Datadog, Grafana, Prometheus) and can send alerts to Slack, Teams, or email. Talk to Sales about specific integrations.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">How does incident response work?</div>
+        <div class="mfq-a">It detects anomalies, initiates runbooks you have approved, and escalates to you when human judgment is needed. It documents everything for post-mortems.</div>
+      </div>
+    </div>
+        <div class="modal-integrations">
+      <h4>How it connects</h4>
+      <p>Connects to your monitoring stack (Datadog, Grafana, Prometheus), cloud providers (AWS, GCP, Azure), and alerting channels (Slack, Teams, PagerDuty). Alerts are triaged, runbooks are executed, and incidents are documented automatically.</p>
+    </div>
+    <a href="#contact" class="modal-cta" onclick="closeModal('sysadmin')">Get Started</a>
+  </div>
+</div>
+
+<!-- Recruiter Modal -->
+<div class="modal-overlay" id="modal-recruiter" onclick="closeModalOutside(event, 'recruiter')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('recruiter')">&times;</button>
+    <div class="modal-role-header">Recruiter</div>
+    <div class="modal-body">
+      <div class="phone-frame">
+        <div class="chat-header">
+          <span class="green-dot"></span>
+          Recruiter Agent
+        </div>
+        <div class="chat-body" id="modal-chat-recruiter"></div>
+      </div>
+    </div>
+    <div class="modal-price">
+      <div class="amount">$250 <span style="font-size:0.9rem;font-weight:600;color:var(--color-text-secondary)">/month</span></div>
+      <div style="font-size:0.82rem;color:var(--color-dark-gray);margin-top:0.35rem;">Avg human recruiter salary: $4,500/mo</div>
+    </div>
+        <div class="modal-faq">
+      <h4>Questions about the Recruiter</h4>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Can it source candidates on LinkedIn?</div>
+        <div class="mfq-a">It sources from job boards, your ATS, and inbound applications. For LinkedIn sourcing, talk to Sales about custom integration.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Does it conduct screening calls?</div>
+        <div class="mfq-a">It screens resumes, schedules interviews, and sends follow-up emails. It does not conduct live phone screens, but it can draft screening questions for you.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">How does it handle candidate communication?</div>
+        <div class="mfq-a">It sends personalized outreach, responds to candidates, coordinates scheduling, and keeps your pipeline warm across Slack, email, and messaging platforms.</div>
+      </div>
+      <div class="modal-faq-card">
+        <div class="mfq-q">Can it manage onboarding?</div>
+        <div class="mfq-a">Yes. It sends offer letters, collects paperwork, sets up first-day schedules, and coordinates with your HR tools.</div>
+      </div>
+    </div>
+        <div class="modal-integrations">
+      <h4>How it connects</h4>
+      <p>Links to your ATS (Greenhouse, Lever, Workable) and communication channels. Candidates are tracked, interviews are scheduled, and pipeline data flows into your hiring dashboard without manual updates.</p>
+    </div>
+    <a href="#contact" class="modal-cta" onclick="closeModal('recruiter')">Get Started</a>
+  </div>
+</div>
+
+<script>
+// Conversations data
+const conversations = {
+  homepage: [
+    { sender: 'user', text: "Can you check my calendar for tomorrow?" },
+    { sender: 'agent', text: "You have 3 meetings tomorrow. The 10am with Acme Corp was moved to 11am. I've already updated your calendar and sent you a briefing." },
+    { sender: 'user', text: "Perfect. Move my 2pm call to Thursday." },
+    { sender: 'agent', text: "Done. I've notified the participants and updated your calendar. Thursday 2pm is now blocked." }
+  ],
+  ea: [
+    { sender: 'user', text: "Can you check my calendar for tomorrow?" },
+    { sender: 'agent', text: "You have 3 meetings tomorrow. The 10am with Acme Corp was moved to 11am. I've already updated your calendar and sent you a briefing." },
+    { sender: 'user', text: "Perfect. Move my 2pm call to Thursday." },
+    { sender: 'agent', text: "Done. I've notified the participants and updated your calendar. Thursday 2pm is now blocked." }
+  ],
+  sdr: [
+    { sender: 'user', text: "How many prospects did we reach last week?" },
+    { sender: 'agent', text: "147 prospects contacted across 3 sequences. 23 replied, 8 booked meetings. Your pipeline report is in Slack." },
+    { sender: 'user', text: "Book a follow-up with the 8 who booked." },
+    { sender: 'agent', text: "All 8 follow-ups scheduled. Confirmation emails sent. Next steps added to your CRM." }
+  ],
+  cs: [
+    { sender: 'user', text: "We got a complaint about shipping delays from order #4821." },
+    { sender: 'agent', text: "I found the order. It's been stuck in transit for 5 days. I've drafted an apology email with a 15% discount code and escalated to the fulfillment team." },
+    { sender: 'user', text: "Send it and flag similar orders." },
+    { sender: 'agent', text: "Done. 3 other delayed orders flagged. Apology emails queued for your review." }
+  ],
+  pm: [
+    { sender: 'user', text: "What's the status on the Q3 launch?" },
+    { sender: 'agent', text: "Sprint 4 is 78% complete. Design review is blocked on client feedback. I've nudged the stakeholder and moved the deadline to Friday. Full status report in your inbox." },
+    { sender: 'user', text: "Good. What's at risk?" },
+    { sender: 'agent', text: "Two items: the API integration is 2 days behind, and copy review hasn't started. I've flagged both in standup and requested owner updates by EOD." }
+  ],
+  copywriter: [
+    { sender: 'user', text: "Write a launch email for the new feature." },
+    { sender: 'agent', text: "Here's a draft. Subject: Your workflow just got faster. Body previews the 3 key improvements and ends with a CTA to try it free. Full draft in your inbox." },
+    { sender: 'user', text: "Make it shorter and more direct." },
+    { sender: 'agent', text: "Revised. Cut from 280 words to 140. Same CTA, tighter opening. Sent to your drafts." }
+  ],
+  accountant: [
+    { sender: 'user', text: "What's our cash position this month?" },
+    { sender: 'agent', text: "Current cash balance: $42,380. Receivables of $18,200 are due by the 15th. Payroll runs on the 30th for $11,400. Projected end-of-month balance: $49,180." },
+    { sender: 'user', text: "Flag anything past due." },
+    { sender: 'agent', text: "Found 2 invoices over 30 days past due. I've sent payment reminders and flagged them in your weekly report." }
+  ],
+  sysadmin: [
+    { sender: 'user', text: "Are all servers healthy?" },
+    { sender: 'agent', text: "All 7 servers responding. CPU averages below 35%. Disk usage at 62% on db-prod, which triggers the 60% alert. Patch cycle completed on 5 of 7. Two pending reboot, scheduled for 2am tonight." },
+    { sender: 'user', text: "What about backups?" },
+    { sender: 'agent', text: "Last full backup: 3am today, all verified. Incrementals running every 6 hours. No failures in 47 days. Report is in your Slack channel." }
+  ],
+  recruiter: [
+    { sender: 'user', text: "How's the pipeline for the senior dev role?" },
+    { sender: 'agent', text: "43 candidates sourced. 12 screened, 5 shortlisted. 3 interviews scheduled this week. I've sent follow-ups to the other 2 shortlisted candidates. Full pipeline report in your inbox." },
+    { sender: 'user', text: "Schedule the top candidate for Thursday." },
+    { sender: 'agent', text: "Done. Thursday at 2pm with you and the tech lead. Calendar invites sent. Interview prep notes attached." }
+  ]
+};
+
+// Chat typing engine
+const TYPE_SPEED = 30; // ms per character
+const PAUSE_BETWEEN = 800; // ms between messages
+const TYPING_PAUSE = 1200; // ms for typing indicator
+
+function createTypingIndicator(chatBody) {
+  const indicator = document.createElement('div');
+  indicator.className = 'typing-indicator';
+  indicator.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
+  chatBody.appendChild(indicator);
+  // Force reflow then show
+  requestAnimationFrame(() => {
+    indicator.classList.add('visible');
+  });
+  chatBody.scrollTop = chatBody.scrollHeight;
+  return indicator;
+}
+
+function typeMessage(chatBody, sender, text) {
+  return new Promise((resolve) => {
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble ' + sender;
+    chatBody.appendChild(bubble);
+
+    // Show bubble with empty content first
+    requestAnimationFrame(() => {
+      bubble.classList.add('visible');
+      chatBody.scrollTop = chatBody.scrollHeight;
+    });
+
+    let i = 0;
+    const cursor = document.createElement('span');
+    cursor.className = 'typing-cursor';
+
+    function typeChar() {
+      if (i < text.length) {
+        // Remove cursor, add char, re-add cursor
+        if (bubble.contains(cursor)) bubble.removeChild(cursor);
+        const textNode = document.createTextNode(text[i]);
+        bubble.appendChild(textNode);
+        bubble.appendChild(cursor);
+        i++;
+        chatBody.scrollTop = chatBody.scrollHeight;
+        setTimeout(typeChar, TYPE_SPEED);
+      } else {
+        // Done typing, remove cursor
+        if (bubble.contains(cursor)) bubble.removeChild(cursor);
+        chatBody.scrollTop = chatBody.scrollHeight;
+        resolve();
+      }
+    }
+
+    // Small delay before typing starts for visual effect
+    setTimeout(typeChar, 100);
+  });
+}
+
+async function playConversation(containerId, conversationKey) {
+  const chatBody = document.getElementById(containerId);
+  if (!chatBody) return;
+
+  // Clear any previous content
+  chatBody.innerHTML = '';
+  const messages = conversations[conversationKey];
+  if (!messages) return;
+
+  for (let i = 0; i < messages.length; i++) {
+    const msg = messages[i];
+
+    // Show typing indicator before each message
+    const indicator = createTypingIndicator(chatBody);
+
+    // Wait for typing indicator pause
+    await new Promise(r => setTimeout(r, TYPING_PAUSE));
+
+    // Remove indicator
+    indicator.classList.remove('visible');
+    await new Promise(r => setTimeout(r, 150));
+    if (indicator.parentNode) indicator.parentNode.removeChild(indicator);
+
+    // Type the message
+    await typeMessage(chatBody, msg.sender, msg.text);
+
+    // Pause between messages (skip after last)
+    if (i < messages.length - 1) {
+      await new Promise(r => setTimeout(r, PAUSE_BETWEEN));
+    }
+  }
+}
+
+// Modal management
+let activeModal = null;
+let modalAnimations = {};
+
+function openModal(key) {
+  const overlay = document.getElementById('modal-' + key);
+  if (!overlay) return;
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  activeModal = key;
+
+  // Play chat demo in modal after a short delay
+  setTimeout(() => {
+    playConversation('modal-chat-' + key, key);
+  }, 400);
+}
+
+function closeModal(key) {
+  const overlay = document.getElementById('modal-' + key);
+  if (!overlay) return;
+  overlay.classList.remove('active');
+  document.body.style.overflow = '';
+  activeModal = null;
+}
+
+function closeModalOutside(event, key) {
+  if (event.target.classList.contains('modal-overlay')) {
+    closeModal(key);
+  }
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && activeModal) {
+    closeModal(activeModal);
+  }
+});
+
+// Homepage chat demo: Carousel auto-cycle + tab clicks
+const roleLabels = {
+  ea: 'EA Agent',
+  sdr: 'SDR Agent',
+  cs: 'Support Agent',
+  pm: 'PM Agent',
+  copywriter: 'Copywriter Agent',
+  accountant: 'Accountant Agent',
+  sysadmin: 'Sysadmin Agent',
+  recruiter: 'Recruiter Agent'
+};
+const roleOrder = ['ea', 'sdr', 'cs', 'pm', 'copywriter', 'accountant', 'sysadmin', 'recruiter'];
+let currentRoleIndex = 0;
+let autoCycleTimer = null;
+let homepageChatPlayed = false;
+
+function switchRole(roleKey) {
+  const chatBody = document.getElementById('homepage-chat-body');
+  const label = document.getElementById('chat-role-label');
+  if (!chatBody || !label) return;
+
+  // Update label
+  label.textContent = roleLabels[roleKey] || roleKey + ' Agent';
+
+  // Clear chat and play new conversation
+  chatBody.innerHTML = '';
+  playConversation('homepage-chat-body', roleKey);
+
+  // Update active tab
+  document.querySelectorAll('.carousel-tab').forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.role === roleKey);
+  });
+
+  // Reset auto-cycle timer
+  clearInterval(autoCycleTimer);
+  startAutoCycle();
+}
+
+function startAutoCycle() {
+  autoCycleTimer = setInterval(() => {
+    currentRoleIndex = (currentRoleIndex + 1) % roleOrder.length;
+    switchRole(roleOrder[currentRoleIndex]);
+  }, 8000); // 8 seconds per role
+}
+
+// Tab click handlers
+document.getElementById('carousel-tabs').addEventListener('click', function(e) {
+  const tab = e.target.closest('.carousel-tab');
+  if (!tab) return;
+  const roleKey = tab.dataset.role;
+  currentRoleIndex = roleOrder.indexOf(roleKey);
+  switchRole(roleKey);
+});
+
+// IntersectionObserver to start carousel when visible
+const homepageChatEl = document.getElementById('homepage-chat');
+if (homepageChatEl) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !homepageChatPlayed) {
+        homepageChatPlayed = true;
+        switchRole('ea');
+      }
+    });
+  }, { threshold: 0.3 });
+  observer.observe(homepageChatEl);
+}
+
+// FAQ accordion
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// Modal FAQ accordion
+document.addEventListener('click', function(e) {
+  const card = e.target.closest('.modal-faq-card');
+  if (!card) return;
+  const wasOpen = card.classList.contains('open');
+  const parent = card.closest('.modal-faq');
+  if (parent) parent.querySelectorAll('.modal-faq-card').forEach(c => c.classList.remove('open'));
+  if (!wasOpen) card.classList.add('open');
+});
+</script>
+
+</body>
+</html>

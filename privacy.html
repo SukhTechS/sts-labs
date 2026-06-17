@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - STS Labs</title>
+    <meta name="description" content="Privacy Policy for STS Labs LLC">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-display: 'Fraunces', Georgia, serif;
+            --font-body: 'Manrope', system-ui, sans-serif;
+            --color-red: #dc2626;
+            --color-red-dark: #b91c1c;
+            --color-red-light: #fef2f2;
+            --color-text: #1a1a1a;
+            --color-text-secondary: #4a4a4a;
+            --color-off-white: #fafafa;
+            --color-mid-gray: #e0e0e0;
+            --color-dark-gray: #6b6b6b;
+            --border-main: 1.5px;
+            --shadow-offset: 4px 4px 0 var(--color-red);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background: #fff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Nav */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #fff;
+            border-bottom: var(--border-main) solid var(--color-text);
+            padding: 0.75rem 1.5rem;
+        }
+
+        .nav-inner {
+            max-width: 64rem;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.25rem;
+            text-decoration: none;
+            color: var(--color-text);
+            letter-spacing: -0.02em;
+        }
+
+        .logo .s {
+            color: var(--color-red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: var(--color-text);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-red);
+        }
+
+        .nav-links a.active {
+            color: var(--color-red);
+        }
+
+        /* Main content */
+        main {
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 2.5rem;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .updated-date {
+            font-size: 0.875rem;
+            color: var(--color-dark-gray);
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+        }
+
+        .intro {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+
+        h2 .section-num {
+            color: var(--color-red);
+            font-weight: 800;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: var(--color-text-secondary);
+        }
+
+        ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+            color: var(--color-text-secondary);
+        }
+
+        .highlight-box {
+            background: var(--color-red-light);
+            border: var(--border-main) solid var(--color-red);
+            box-shadow: var(--shadow-offset);
+            padding: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0.25rem;
+            color: var(--color-text);
+        }
+
+        .highlight-box strong {
+            color: var(--color-red-dark);
+        }
+
+        .contact-box {
+            background: var(--color-off-white);
+            border: var(--border-main) solid var(--color-text);
+            box-shadow: var(--shadow-offset);
+            padding: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .contact-box p {
+            margin-bottom: 0.25rem;
+            color: var(--color-text);
+        }
+
+        .contact-box strong {
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            border-top: var(--border-main) solid var(--color-text);
+            padding: 2rem 1.5rem;
+            background: #fff;
+        }
+
+        .footer-inner {
+            max-width: 64rem;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-left {
+            font-size: 0.85rem;
+            color: var(--color-dark-gray);
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        .footer-links a {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--color-text);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            transition: color 0.15s;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-red);
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.15rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo"><span class="s">S</span> TS Labs</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/privacy.html" class="active">Privacy</a>
+            <a href="/terms.html">Terms</a>
+            <a href="/#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <h1>Privacy Policy</h1>
+    <p class="updated-date">Last updated: June 2026</p>
+
+    <p class="intro">STS Labs LLC ("we," "our," or "us") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, store, and share information when you use our platform and services.</p>
+
+    <div class="highlight-box">
+        <p><strong>Key commitments:</strong> We do not use your data to train AI models. Your data is encrypted in transit and at rest. You can export or delete your data at any time.</p>
+    </div>
+
+    <h2><span class="section-num">1.</span> Information We Collect</h2>
+    <p>We collect information in the following categories:</p>
+    <ul>
+        <li><strong>Account information:</strong> Name, email address, business name, and payment details you provide when registering for an account.</li>
+        <li><strong>Configuration data:</strong> Agent settings, channel preferences, custom instructions, and other inputs you provide to configure your AI employee agents.</li>
+        <li><strong>Conversation data:</strong> Messages processed through your AI employee agents across supported channels (WhatsApp, Slack, Microsoft Teams, Telegram, Discord, and Email).</li>
+        <li><strong>Usage data:</strong> Information about how you interact with the platform, including login times, feature usage, and performance metrics.</li>
+        <li><strong>Technical data:</strong> IP address, browser type, device information, and cookies collected automatically when you access the platform.</li>
+    </ul>
+
+    <h2><span class="section-num">2.</span> How We Use Your Information</h2>
+    <p>We use the information we collect to:</p>
+    <ul>
+        <li>Provide, maintain, and improve our AI employee agent services</li>
+        <li>Process your agent configurations and deliver messages across your connected channels</li>
+        <li>Process payments and manage your subscription</li>
+        <li>Communicate with you about your account, service updates, and support inquiries</li>
+        <li>Monitor platform performance, detect abuse, and ensure security</li>
+        <li>Comply with legal obligations</li>
+    </ul>
+
+    <h2><span class="section-num">3.</span> Data Storage and Security</h2>
+    <p>We store your data on secure servers and employ industry-standard security measures to protect it. All data is encrypted in transit using TLS and encrypted at rest using AES-256 encryption.</p>
+    <p>While we take reasonable steps to protect your information, no method of transmission over the internet or method of electronic storage is completely secure. We cannot guarantee absolute security, but we continuously work to safeguard your data.</p>
+
+    <h2><span class="section-num">4.</span> Data and AI Training Practices</h2>
+    <p>We do not use your data, conversation logs, or agent outputs to train, fine-tune, or improve any AI or machine learning models. Your data is used solely to provide the services you have subscribed to.</p>
+    <p>This means your business conversations, agent configurations, and customer interactions remain private and are never repurposed for model development or shared with third-party model trainers.</p>
+
+    <h2><span class="section-num">5.</span> Data Sharing and Third Parties</h2>
+    <p>We do not sell your personal information. We may share your data only in the following circumstances:</p>
+    <ul>
+        <li><strong>Service providers:</strong> Trusted third parties who assist us in operating the platform, processing payments, or delivering messages across channels, subject to strict confidentiality agreements.</li>
+        <li><strong>Channel providers:</strong> Messages are transmitted through the infrastructure of supported channel providers (WhatsApp/Meta, Slack, Microsoft, Telegram, Discord) in accordance with their own privacy policies.</li>
+        <li><strong>Legal requirements:</strong> When required by law, regulation, legal process, or governmental request.</li>
+        <li><strong>Business transfers:</strong> In connection with a merger, acquisition, or sale of assets, with notice to you where feasible.</li>
+    </ul>
+
+    <h2><span class="section-num">6.</span> Your Rights and Choices</h2>
+    <p>You have the following rights regarding your data:</p>
+    <ul>
+        <li><strong>Export:</strong> You can export a copy of your data at any time through the platform dashboard, including conversation logs, agent configurations, and account information.</li>
+        <li><strong>Delete:</strong> You can request deletion of your data at any time through the platform dashboard or by contacting us. We will delete your data within 30 days of a verified request, except where retention is required by law.</li>
+        <li><strong>Access:</strong> You can view and review your data through the platform dashboard at any time.</li>
+        <li><strong>Correct:</strong> You can update or correct your account information and agent configurations at any time.</li>
+    </ul>
+
+    <h2><span class="section-num">7.</span> Data Retention</h2>
+    <p>We retain your data for as long as your account is active or as needed to provide our services. After account termination:</p>
+    <ul>
+        <li>Conversation data is deleted within 30 days of account closure</li>
+        <li>Account and billing records are retained as required by law or for legitimate business purposes, typically no longer than 3 years</li>
+        <li>You may request earlier deletion by contacting us directly</li>
+    </ul>
+
+    <h2><span class="section-num">8.</span> Cookies and Tracking</h2>
+    <p>We use essential cookies to maintain your session and preferences on the platform. We may also use analytics cookies to understand how users interact with our platform and improve our services.</p>
+    <p>You can control cookie preferences through your browser settings. Disabling cookies may affect certain features of the platform.</p>
+
+    <h2><span class="section-num">9.</span> International Data Transfers</h2>
+    <p>STS Labs LLC is based in Floral Park, New York, USA. Your data may be processed on servers located in the United States. If you are accessing the platform from outside the US, please be aware that your data will be transferred to and processed in the US.</p>
+    <p>We take appropriate safeguards to ensure your data is protected in accordance with this policy, regardless of where it is processed.</p>
+
+    <h2><span class="section-num">10.</span> Children's Privacy</h2>
+    <p>Our services are directed at businesses and are not intended for individuals under the age of 18. We do not knowingly collect personal information from children. If we learn that we have collected data from a child under 18, we will take steps to delete it promptly.</p>
+
+    <h2><span class="section-num">11.</span> Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify you of material changes by posting the updated policy on our website and updating the "Last updated" date. We encourage you to review this policy periodically.</p>
+    <p>Your continued use of the platform after any changes constitutes your acceptance of the revised policy.</p>
+
+    <h2><span class="section-num">12.</span> Contact Us</h2>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please contact us:</p>
+
+    <div class="contact-box">
+        <p><strong>STS Labs LLC</strong></p>
+        <p>Floral Park, NY</p>
+        <p>hello@sukhtech.com</p>
+        <p>(516) 655-4517</p>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+            &copy; 2026 STS Labs &middot; (516) 655-4517 &middot; hello@sukhtech.com
+        </div>
+        <div class="footer-links">
+            <a href="/privacy.html">Privacy</a>
+            <a href="/terms.html">Terms</a>
+            <a href="/#contact">Contact</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
